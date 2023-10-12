@@ -10,7 +10,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="로그인"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.173" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.349" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -71,10 +71,10 @@
         app:layout_constraintVertical_bias="0.353" />
 
     <Button
-        android:id="@+id/btsignin"
+        android:id="@+id/login_btlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:text="로그인"
         app:backgroundTint="#357035"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,10 +84,10 @@
         app:layout_constraintVertical_bias="0.598" />
 
     <Button
-        android:id="@+id/btsignup"
+        android:id="@+id/login_btsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="회원가입"
         app:backgroundTint="#357035"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

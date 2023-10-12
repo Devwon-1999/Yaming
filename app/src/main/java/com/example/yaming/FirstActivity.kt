@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 
-class MainActivity : AppCompatActivity() {
+class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) { //앱 최초 실행시 실행되는 함수
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) //최초 화면 연결
+        setContentView(R.layout.activity_first) //최초 화면 연결
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean { //화면 터치시 실행되는 함수
