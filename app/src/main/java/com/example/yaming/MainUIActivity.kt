@@ -9,3 +9,4 @@ class MainUIActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_uiactivity)
     }
 }
+
