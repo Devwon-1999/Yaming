@@ -13,6 +13,7 @@ import android.widget.Toast
 import java.util.Timer
 import java.util.TimerTask
 
+//카메라 관련 수정 필요
 
 class MainUIActivity : AppCompatActivity() {
     private val CAMERA_REQUEST_CODE = 101
@@ -28,13 +29,7 @@ class MainUIActivity : AppCompatActivity() {
 
         val btcamera = findViewById<View>(R.id.btcamera) //카메라의 버튼이 눌렸을 때
         btcamera.setOnClickListener{
-//            if (!hasCameraPermission()) {
-//                requestCameraPermission()
-//            } else {
-//                openCamera()
-//            }
             requestCameraPermission()
-
         }
 
     }
@@ -92,7 +87,7 @@ class MainUIActivity : AppCompatActivity() {
                 finish()
             } else {
                 // 사용자가 권한을 거부한 경우 또는 다른 처리를 추가
-                val message = "권한을 거부할 시 앱을 사용할 수 없습니다."
+                val message = "권한을 거부할 시 앱을 사용할 수 없어요.\n 사용을 원할경우 설정 -> 권한 -> 카메라 권한 설정을 해주세요."
                 val duration = Toast.LENGTH_SHORT // 또는 Toast.LENGTH_LONG
                 Toast.makeText(this, message, duration).show()
                 finish()

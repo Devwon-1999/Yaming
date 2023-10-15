@@ -91,9 +91,9 @@ class SignupActivity : AppCompatActivity() {
 //            startActivity(intent)
         }
 
-        fun postlogin(name: String, email: String, password: String, phonenum: String, age: Int, sex :String, height :Int, weight :Int){
-
-        }
+//        fun postlogin(name: String, email: String, password: String, phonenum: String, age: Int, sex :String, height :Int, weight :Int){
+//
+//        }
 
 
         val btback = findViewById<View>(R.id.btback) //뒤로가기

@@ -50,4 +50,11 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //서버연결시 필요한 종속성 추가
+    //MySQL 데이터베이스 연결을 위해 JDBC 드라이버를 Gradle 파일에 추가합니다.
+    //build.gradle (Module: app) 파일에 다음 종속성을 추가합니다:
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0") // 코루틴
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")                  // Retrofit
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")            // Gson 컨버터
 }
