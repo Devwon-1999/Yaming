@@ -20,10 +20,6 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-
-
-
-
         val btsignin = findViewById<View>(R.id.btsignin) //가입버튼 클릭시 호출
         btsignin.setOnClickListener{
 
