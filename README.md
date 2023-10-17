@@ -10,3 +10,4 @@ App UI 구현(2023.10.10 ~ <br>
 10.15 메인화면의 카메라 관련 권한, 카메라 사용 구현<br>
 10.16 서버 종속성 추가<br>
 10.17 서버 Api, Client, DataResponse 파일 생성 기본 틀 구현<br>
+10.18 앱 서버 구현 TokenManager, LoginActivity 서버 통신 구현 수정 필요<br>
