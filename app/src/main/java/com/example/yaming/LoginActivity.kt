@@ -1,50 +1,48 @@
 package com.example.yaming
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.POST
 import retrofit2.http.*
-import retrofit2.http.Query
 
-data class Post(val email: String)
-public interface ApiService {
 
-    @POST("/login/user")
-    fun getUser(@Query("email") email: String): Call<Post>
-//    @Header("token") token: String?,
-//    @POST("/createPost")
-//    fun createPost(@Body post: Post): Call<Post>
+data class ResponseData(val data: Map<String, Any?> )
+
+class UserRequest internal constructor(val email: String)
+
+interface ApiService {
+    @POST("/user/getUser")
+    fun getUser(@Body body: UserRequest): Call<ResponseData>
 }
-
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var apiService: ApiService
-    private fun sendRequest() {
-        val call = apiService.getUser(email = "user@example.com") // API 메소드 호출
-        call.enqueue(object : Callback<Post> {
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+    private fun sendRequest(email: String) {
+        val call = apiService.getUser(UserRequest(email)) // API 메소드 호출
+        call.enqueue(object : Callback<ResponseData> {
+            override fun onResponse(call: Call<ResponseData>, response: Response<ResponseData>) {
                 if (response.isSuccessful) {
-                    val post = response.body()
-                    if (post != null) {
-                        // 요청에 대한 응답을 처리
-                        println("제목: ${post.email}")
-
-                    } else {
-                        println("데이터가 없습니다.")
+                    println(response.body()!!.data["name"])
+                    if(response.body()!!.data.isEmpty()){
+                        println("가져온 데이터가 없습니다")
                     }
-                } else {
+                    else{
+                        println("로그인 성공")
+                    }
+
+                }
+                else {
                     println("요청에 실패했습니다. HTTP 에러 코드: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<Post>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseData>, t: Throwable) {
                 println("네트워크 오류: ${t.message}")
             }
         })
@@ -69,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
             val email = login_email.text.toString()
             val password = login_password.text.toString()
 
-            sendRequest()
+            sendRequest(email)
         }
 
 
