@@ -11,12 +11,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.POST
 import retrofit2.http.*
+import retrofit2.http.Query
 
 data class Post(val email: String)
-interface ApiService {
-    @POST("/login/user")
-    fun getUser(@Body email: String): Call<Post>
+public interface ApiService {
 
+    @POST("/login/user")
+    fun getUser(@Query("email") email: String): Call<Post>
+//    @Header("token") token: String?,
 //    @POST("/createPost")
 //    fun createPost(@Body post: Post): Call<Post>
 }
@@ -53,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_activity)//로그인 폼 시작
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("https://localhost:3000")
+            .baseUrl("https://yaming-server.vercel.app")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
