@@ -58,6 +58,10 @@ class SignupActivity : AppCompatActivity() {
 
             val editTextpn = findViewById<EditText>(R.id.editTextPhoneNumber) //전화번호
             val phonenum = editTextpn.text.toString()
+            if(isValidPhoneNumber(phonenum) != true){
+                editTextpn.error = "올바른 전화번호 형식이 아닙니다."
+            }
+
 
             val editTextage = findViewById<EditText>(R.id.editTextAge) //나이
             val age = editTextage.text.toString()
