@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.yaming"
-        minSdk = 16
+        minSdk = 21
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -57,4 +57,11 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0") // 코루틴
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")                  // Retrofit
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")            // Gson 컨버터
+
+    //달력
+    implementation ("com.github.prolificinteractive:material-calendarview:2.0.1")
+    implementation ("com.jakewharton.threetenabp:threetenabp:1.2.1")
+
+
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
 }

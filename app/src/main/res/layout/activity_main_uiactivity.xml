@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainUIActivity">
+
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
         android:orientation="horizontal"
-        android:gravity="top|center"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/btcamera"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="카메라"
-            app:backgroundTint="#357035" />
-
-    </LinearLayout>
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:gravity="bottom"
-    android:padding="16dp">
-
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.996">
         <!-- 버튼 1 -->
         <Button
             android:id="@+id/bt1"
@@ -36,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="통계"
-            app:backgroundTint="#357035" />
+            app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 2 -->
         <Button
@@ -45,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="달력"
-            app:backgroundTint="#357035" />
+            app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 3 -->
         <Button
@@ -54,16 +45,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="홈"
-            app:backgroundTint="#357035" />
+            app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 4 -->
+
         <Button
             android:id="@+id/bt4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="걸음"
-            app:backgroundTint="#357035" />
+            app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 5 -->
         <Button
@@ -72,8 +64,178 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="유저"
-            app:backgroundTint="#357035" />
+            app:backgroundTint="@color/identityColor" />
+    </LinearLayout>
 
+    <Button
+        android:id="@+id/btCameraOpen"
+        android:layout_width="111dp"
+        android:layout_height="88dp"
+        android:text="카메라"
+        app:backgroundTint="@color/identityColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <Button
+        android:id="@+id/btUserInput"
+        android:layout_width="111dp"
+        android:layout_height="88dp"
+        android:text="직접 입력"
+        app:backgroundTint="@color/identityColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginHorizontal="20dp"
+        android:firstDayOfWeek="1"
+        android:maxDate="12/31/2100"
+        android:minDate="01/31/2020"
+        android:selectedWeekBackgroundColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.040" />
+
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="33dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604">
+
+        <TextView
+            android:id="@+id/breakfast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="아침" />
+
+        <TextView
+            android:id="@+id/lunch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="점심" />
+
+        <TextView
+            android:id="@+id/dinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="저녁" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="끼니별 섭취 열량"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="84dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703">
+
+        <TextView
+            android:id="@+id/breakfastcal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="아침 칼로리" />
+
+        <TextView
+            android:id="@+id/lunchcal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="점심 칼로리" />
+
+        <TextView
+            android:id="@+id/dinnercal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="저녁 칼로리" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="386dp"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintVertical_bias="0.550"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="right|center"
+            android:text="일일 권장량"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/dailyAmount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="0000"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:textSize="15dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="right|center"
+            android:text="kcal" />
     </LinearLayout>
 
 

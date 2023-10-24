@@ -9,6 +9,7 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.widget.TextView
 import android.widget.Toast
 import java.util.Timer
 import java.util.TimerTask
@@ -27,12 +28,15 @@ class MainUIActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_uiactivity)
 
-        val btcamera = findViewById<View>(R.id.btcamera) //카메라의 버튼이 눌렸을 때
+        val btcamera = findViewById<View>(R.id.btCameraOpen) //카메라의 버튼이 눌렸을 때
         btcamera.setOnClickListener{
             requestCameraPermission()
         }
 
     }
+
+
+
     private fun hasCameraPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
@@ -94,6 +98,9 @@ class MainUIActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
     override fun onDestroy() {
         super.onDestroy()
         permissionRequestTimer?.cancel() // 액티비티가 종료되면 타이머 취소
