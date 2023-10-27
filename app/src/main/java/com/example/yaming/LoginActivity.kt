@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     val responseData = response.body()
                     if (responseData != null) { //응답 O 데이터 O
                         val data = responseData.data
+
                         try
                         {
                             if (data.isEmpty()) {// 응답 O 데이터 X 예외처리로 이동

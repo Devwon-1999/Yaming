@@ -9,6 +9,8 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.view.ViewGroup
+import android.widget.CalendarView
 import android.widget.TextView
 import android.widget.Toast
 import java.util.Timer
@@ -24,16 +26,47 @@ class MainUIActivity : AppCompatActivity() {
     private var permissionRequests = 0
     private var permissionRequestTimer: Timer? = null
 
+
+    val breakfastCal = 0
+    val lunchCal = 0
+    val dinnerCal = 0
+    val weight = 70
+    val dailyAmount = weight * 30
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_uiactivity)
 
-        val btcamera = findViewById<View>(R.id.btCameraOpen) //카메라의 버튼이 눌렸을 때
-        btcamera.setOnClickListener{
-            requestCameraPermission()
+        val calendarView = findViewById<CalendarView>(R.id.calendarView)
+        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            try {
+                // 선택한 날짜에 대한 작업을 수행합니다.
+                // 이곳에서 날짜의 배경색을 변경할 수 있습니다.
+                // 예를 들어, 선택한 날짜의 배경색을 빨간색으로 변경하려면 다음과 같이 하세요.
+
+                // 날짜 선택 시 기본 색상을 제거하려면 선택한 날짜 이외의 날짜를 초기화합니다.
+                calendarView.date = calendarView.date // 이 줄은 선택한 날짜만 강조 표시하도록 합니다.
+
+                // 선택한 날짜의 배경색 변경
+                val selectedDateView = (calendarView.getChildAt(0) as ViewGroup).getChildAt(dayOfMonth - 1)
+                selectedDateView.setBackgroundResource(R.drawable.selected_date_background) // 배경 리소스를 사용해 배경색을 변경할 수 있습니다.
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // 예외가 발생한 경우 여기서 처리할 코드를 추가할 수 있습니다.
+            }
         }
 
+        val btCamera = findViewById<View>(R.id.btCameraOpen) //카메라의 버튼이 눌렸을 때
+        btCamera.setOnClickListener{
+            requestCameraPermission()
+        }
+        val btUserInput = findViewById<View>(R.id.btUserInput)
+        btUserInput.setOnClickListener {
+
+        }
     }
+
 
 
 

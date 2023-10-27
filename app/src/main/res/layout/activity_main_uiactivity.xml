@@ -9,11 +9,11 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,77 +21,92 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.996">
         <!-- 버튼 1 -->
-        <Button
-            android:id="@+id/bt1"
+
+        <ImageButton
+            android:id="@+id/btGraph"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="통계"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/growth"
+
             app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 2 -->
-        <Button
-            android:id="@+id/bt2"
+        <ImageButton
+            android:id="@+id/btCalendar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="달력"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/calendar"
+
             app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 3 -->
-        <Button
-            android:id="@+id/bt3"
+        <ImageButton
+            android:id="@+id/btHome"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="홈"
+            android:scaleType="centerInside"
+            android:src="@drawable/home"
+
             app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 4 -->
 
-        <Button
-            android:id="@+id/bt4"
+        <ImageButton
+            android:id="@+id/btWalk"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="걸음"
+            android:scaleType="centerInside"
+            android:src="@drawable/walk"
+
             app:backgroundTint="@color/identityColor" />
 
         <!-- 버튼 5 -->
-        <Button
-            android:id="@+id/bt5"
+        <ImageButton
+            android:id="@+id/btUser"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="유저"
+            android:scaleType="centerInside"
+            android:src="@drawable/user"
+
             app:backgroundTint="@color/identityColor" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btCameraOpen"
-        android:layout_width="111dp"
-        android:layout_height="88dp"
-        android:text="카메라"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/camera"
         app:backgroundTint="@color/identityColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.883" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btUserInput"
-        android:layout_width="111dp"
-        android:layout_height="88dp"
-        android:text="직접 입력"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pencil"
         app:backgroundTint="@color/identityColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -104,10 +119,11 @@
         android:minDate="01/31/2020"
         android:selectedWeekBackgroundColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.040" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:layout_width="411dp"
@@ -172,7 +188,7 @@
         app:layout_constraintVertical_bias="0.703">
 
         <TextView
-            android:id="@+id/breakfastcal"
+            android:id="@+id/breakfastCal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -180,7 +196,7 @@
             android:text="아침 칼로리" />
 
         <TextView
-            android:id="@+id/lunchcal"
+            android:id="@+id/lunchCal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -188,7 +204,7 @@
             android:text="점심 칼로리" />
 
         <TextView
-            android:id="@+id/dinnercal"
+            android:id="@+id/dinnerCal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -224,7 +240,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-
+            android:onClick="clickdailyAmount"
             android:text="0000"
             android:textSize="15dp" />
 
