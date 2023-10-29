@@ -20,13 +20,13 @@ data class ResponseData(val data: Map<String, Any?> )
 class UserRequest internal constructor(val email: String)
 //email 속성을 갖는 UserRequest 클래스 생성
 
-interface ApiService { //Retrofit 라이브러리를 사용하여 HTTP요청을 처리하기 위한 API 서비스 인터페이스 정의
+interface LoginService { //Retrofit 라이브러리를 사용하여 HTTP요청을 처리하기 위한 API 서비스 인터페이스 정의
     @POST("/user/getUser") //요청
     fun getUser(@Body body: UserRequest): Call<ResponseData>
 }
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var apiService: ApiService
+    private lateinit var apiService: LoginService
     private fun sendRequest(email: String, password: String) {
         val call = apiService.getUser(UserRequest(email))
         call.enqueue(object : Callback<ResponseData> {
@@ -113,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        apiService = retrofit.create(ApiService::class.java)
+        apiService = retrofit.create(LoginService::class.java)
 
 
         val btsignin = findViewById<View>(R.id.login_btlogin)
