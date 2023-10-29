@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
+
     <!-- 카메라 관련 권한-->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
-    <!-- 카메라 관련 권한-->
-    
-    <!-- 인터넷 권한 추가-->
+
+    <!-- 인터넷 권한(서버 통신) 추가-->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 인터넷 권한 추가-->
 
     <application
         android:allowBackup="true"

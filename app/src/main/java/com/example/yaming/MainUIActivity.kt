@@ -27,13 +27,31 @@ class MainUIActivity : AppCompatActivity() {
     private var permissionRequestTimer: Timer? = null
 
 
-    val breakfastCal = 0
-    val lunchCal = 0
-    val dinnerCal = 0
-    val weight = 70
-    val dailyAmount = weight * 30
+//    val breakfastCal = 0
+//    val lunchCal = 0
+//    val dinnerCal = 0
+//    val weight = 70
+//    val dailyAmount = weight * 30
 
+    fun clickdailyAmount(view: View){
+        try {
+            val textView = findViewById<TextView>(R.id.dailyAmount)
+            val context = applicationContext
+            val dataSource = WeightDataSource(context)
+            val dataList = dataSource.getAllSource()
 
+            if (dataList.isNotEmpty()) {
+                val firstItem = dataList[0]
+                textView.text = "${firstItem.weight * 30}"
+            } else {
+                textView.text = "데이터 없음"
+            }
+        } catch (e: Exception) {
+            // 예외 처리: 데이터베이스 작업 중 예외 발생 시 실행할 코드
+            e.printStackTrace() // 예외 내용을 로그에 출력
+            Toast.makeText(this, "데이터베이스 오류", Toast.LENGTH_SHORT).show()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_uiactivity)

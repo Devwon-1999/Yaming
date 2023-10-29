@@ -165,15 +165,22 @@ class SignupActivity : AppCompatActivity() {
                 val Iage = age.toInt()
                 val Iheight = height.toInt()
                 val Iweight = weight.toInt()
+                
+                //내장 DB에도 따로 저장
+                val newUserInfo = UserInfoDB()
+                newUserInfo.id = 1
+                newUserInfo.height = Iheight
+                newUserInfo.weight = Iweight
+                val context = this
+                val dataSource = WeightDataSource(context)
+                val insertId = dataSource.addSource(newUserInfo)
+                
                 sendRequest(name, email, password, phonenum, Iage, sex, Iheight, Iweight)
             }
 //            val intent = Intent(this, LoginActivity::class.java)
 //            startActivity(intent)
         }
 
-//        fun postlogin(name: String, email: String, password: String, phonenum: String, age: Int, sex :String, height :Int, weight :Int){
-//
-//        }
 
 
         val btback = findViewById<View>(R.id.btback) //뒤로가기
