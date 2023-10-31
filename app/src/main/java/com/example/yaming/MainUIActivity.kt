@@ -81,12 +81,10 @@ class MainUIActivity : AppCompatActivity() {
         }
         val btUserInput = findViewById<View>(R.id.btUserInput)
         btUserInput.setOnClickListener {
-
+            val customDialog = CustomDialog(this)
+            customDialog.show()
         }
     }
-
-
-
 
     private fun hasCameraPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
