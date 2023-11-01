@@ -3,39 +3,145 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="225dp"
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_width="225dp"
+        android:layout_height="48dp"
         android:orientation="horizontal"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf= "parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btSaveDialog"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="저장"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="286dp" />
-    <View
-        android:layout_width="45dp"
-        android:layout_height="match_parent" />
-    <Button
-        android:id="@+id/btCloseDialog"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="닫기"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="286dp" />
+        <Button
+            android:id="@+id/btSaveDialog"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="저장"
+
+            android:backgroundTint="@color/identityColor"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="286dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btCloseDialog"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="닫기"
+            android:backgroundTint="@color/identityColor"
+            tools:layout_editor_absoluteX="231dp"
+            tools:layout_editor_absoluteY="286dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="열량과 3대 영양소를 입력"
+        android:textColor="@color/identityColor"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.859">
+
+        <EditText
+            android:id="@+id/oneMealTotalCal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="전체 열량"
+            android:inputType="text" />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="20dp" />
+
+        <EditText
+            android:id="@+id/oneMealTotalTan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="탄수화물"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/oneMealTotalDan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="단백질"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/oneMealTotalJi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="지방"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="220dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4">
+
+        <RadioButton
+            android:id="@+id/radioBreakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginRight="20dp"
+            android:text="아침" />
+
+        <RadioButton
+            android:id="@+id/radioLunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="점심" />
+
+        <RadioButton
+            android:id="@+id/radioDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저녁" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
