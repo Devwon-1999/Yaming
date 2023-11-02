@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
-
-    <!-- 카메라 관련 권한-->
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- 카메라 관련 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
 
-    <!-- 인터넷 권한(서버 통신) 추가-->
+    <uses-feature android:name="android.hardware.camera" /> <!-- 인터넷 권한(서버 통신) 추가 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -18,9 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yaming"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true"> <!-- useCleartextTraffic -->
-
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".UserDataActivity"
+            android:exported="false" />
+        <!-- useCleartextTraffic -->
         <activity
             android:name=".MainUIActivity"
             android:exported="false"
@@ -30,14 +31,13 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ui.login.LoginActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_login" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ui.login.LoginActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="@string/title_activity_login" /> -->
         <activity
             android:name=".FirstActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

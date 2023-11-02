@@ -84,6 +84,12 @@ class MainUIActivity : AppCompatActivity() {
             val customDialog = CustomDialog(this)
             customDialog.show()
         }
+        val btUser = findViewById<View>(R.id.btUser)
+        btUser.setOnClickListener{
+            val intent = Intent(this, UserDataActivity::class.java) //로그인 화면으로 전환
+            startActivity(intent)
+
+        }
     }
 
     private fun hasCameraPermission(): Boolean {
