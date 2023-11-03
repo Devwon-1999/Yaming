@@ -9,6 +9,8 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.app.Activity
+import android.graphics.Bitmap
 import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.TextView
@@ -56,35 +58,18 @@ class MainUIActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_uiactivity)
 
-        val calendarView = findViewById<CalendarView>(R.id.calendarView)
-        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            try {
-                // 선택한 날짜에 대한 작업을 수행합니다.
-                // 이곳에서 날짜의 배경색을 변경할 수 있습니다.
-                // 예를 들어, 선택한 날짜의 배경색을 빨간색으로 변경하려면 다음과 같이 하세요.
-
-                // 날짜 선택 시 기본 색상을 제거하려면 선택한 날짜 이외의 날짜를 초기화합니다.
-                calendarView.date = calendarView.date // 이 줄은 선택한 날짜만 강조 표시하도록 합니다.
-
-                // 선택한 날짜의 배경색 변경
-                val selectedDateView = (calendarView.getChildAt(0) as ViewGroup).getChildAt(dayOfMonth - 1)
-                selectedDateView.setBackgroundResource(R.drawable.selected_date_background) // 배경 리소스를 사용해 배경색을 변경할 수 있습니다.
-            } catch (e: Exception) {
-                e.printStackTrace()
-                // 예외가 발생한 경우 여기서 처리할 코드를 추가할 수 있습니다.
-            }
-        }
-
         val btCamera = findViewById<View>(R.id.btCameraOpen) //카메라의 버튼이 눌렸을 때
         btCamera.setOnClickListener{
             requestCameraPermission()
         }
-        val btUserInput = findViewById<View>(R.id.btUserInput)
+
+        val btUserInput = findViewById<View>(R.id.btUserInput) // 연필버튼이 눌렸을 때
         btUserInput.setOnClickListener {
             val customDialog = CustomDialog(this)
             customDialog.show()
         }
-        val btUser = findViewById<View>(R.id.btUser)
+
+        val btUser = findViewById<View>(R.id.btUser) // 하단 우측버튼눌렸을때
         btUser.setOnClickListener{
             val intent = Intent(this, UserDataActivity::class.java) //로그인 화면으로 전환
             startActivity(intent)
@@ -154,6 +139,14 @@ class MainUIActivity : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // 카메라로 촬영한 사진을 가져오는 코드
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            // 여기에서 `imageBitmap`을 사용하거나 저장할 수 있습니다.
+        }
+    }
 
 
     override fun onDestroy() {
