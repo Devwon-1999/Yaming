@@ -20,7 +20,7 @@ import java.util.TimerTask
 
 //카메라 관련 수정 필요
 
-class MainUIActivity : AppCompatActivity() {
+class MainUIActivity : AppCompatActivity(), CustomDialog.OnDataEnteredListener {
     private val CAMERA_REQUEST_CODE = 101
     private val MAX_PERMISSION_REQUESTS = 3 // 최대 요청 횟수
     private val PERMISSION_REQUEST_INTERVAL = 5000L // 권한 요청 간격 (밀리초)
@@ -29,12 +29,48 @@ class MainUIActivity : AppCompatActivity() {
     private var permissionRequestTimer: Timer? = null
 
 
-//    val breakfastCal = 0
-//    val lunchCal = 0
-//    val dinnerCal = 0
-//    val weight = 70
-//    val dailyAmount = weight * 30
 
+    override fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String) {
+        // 이제 oneMealTotalCal, oneMealTotalTan, oneMealTotalDan, oneMealTotalJi, meal을 사용하여 원하는 작업을 수행할 수 있습니다.
+        // 예를 들어, 이 데이터를 TextView에 표시하거나 데이터베이스에 저장할 수 있습니다.
+        //    val breakfastCal = 0
+        //    val lunchCal = 0
+        //    val dinnerCal = 0
+        //    val weight = 70
+        //    val dailyAmount = weight * 30
+        
+        //테이블 형식으로 수정 필요
+        val oneMealTotalCal = oneMealTotalCal.toInt()
+        val oneMealTotalTan = oneMealTotalTan.toInt()
+        val oneMealTotalDan = oneMealTotalDan.toInt()
+        val oneMealTotalJi = oneMealTotalJi.toInt()
+
+
+        val showTodayTan = findViewById<TextView>(R.id.todayTan)
+        val showTodayDan = findViewById<TextView>(R.id.todayDan)
+        val showTodayJi = findViewById<TextView>(R.id.todayJi)
+
+        showTodayTan.text = "${oneMealTotalTan}g"
+        showTodayDan.text = "${oneMealTotalDan}g"
+        showTodayJi.text = "${oneMealTotalJi}g"
+        if(meal == "아침"){
+            val showBreakfastCal = findViewById<TextView>(R.id.breakfastCal)
+            showBreakfastCal.text = "${oneMealTotalCal}Cal"
+
+
+        }
+        else if(meal == "점심"){
+            val showLunchCal = findViewById<TextView>(R.id.lunchCal)
+            showLunchCal.text = "${oneMealTotalCal}Cal"
+        }
+        else if(meal == "저녁"){
+            val showDinnerCal = findViewById<TextView>(R.id.dinnerCal)
+            showDinnerCal.text = "${oneMealTotalCal}Cal"
+        }
+        else{
+            Toast.makeText(this, "데이터가 정상적으로 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
+        }
+    }
     fun clickdailyAmount(view: View){
         try {
             val textView = findViewById<TextView>(R.id.dailyAmount)
@@ -65,7 +101,7 @@ class MainUIActivity : AppCompatActivity() {
 
         val btUserInput = findViewById<View>(R.id.btUserInput) // 연필버튼이 눌렸을 때
         btUserInput.setOnClickListener {
-            val customDialog = CustomDialog(this)
+            val customDialog = CustomDialog(this, this)
             customDialog.show()
         }
 
@@ -75,6 +111,9 @@ class MainUIActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+
+
     }
 
     private fun hasCameraPermission(): Boolean {

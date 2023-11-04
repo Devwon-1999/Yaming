@@ -10,8 +10,10 @@ import android.widget.RadioButton
 import android.widget.Toast
 
 
-class CustomDialog(context: Context) : Dialog(context) {
-
+class CustomDialog(context: Context, private val listener: OnDataEnteredListener) : Dialog(context) {
+    interface OnDataEnteredListener {
+        fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -48,7 +50,8 @@ class CustomDialog(context: Context) : Dialog(context) {
                 Toast.makeText(context, "식사를 선택하세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
+            listener.onDataEntered(oneMealTotalCal, oneMealTotalTan, oneMealTotalDan, oneMealTotalJi, meal)
+            dismiss()
         }
 
         val btCloseDialog = findViewById<Button>(R.id.btCloseDialog)
