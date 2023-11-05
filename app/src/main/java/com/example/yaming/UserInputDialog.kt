@@ -10,7 +10,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 
 
-class CustomDialog(context: Context, private val listener: OnDataEnteredListener) : Dialog(context) {
+class UserInputDialog(context: Context, private val listener: OnDataEnteredListener) : Dialog(context) {
     interface OnDataEnteredListener {
         fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String)
     }

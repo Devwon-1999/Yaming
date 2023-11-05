@@ -11,8 +11,6 @@ import androidx.core.content.ContextCompat
 import android.Manifest
 import android.app.Activity
 import android.graphics.Bitmap
-import android.view.ViewGroup
-import android.widget.CalendarView
 import android.widget.TextView
 import android.widget.Toast
 import java.util.Timer
@@ -20,7 +18,7 @@ import java.util.TimerTask
 
 //카메라 관련 수정 필요
 
-class MainUIActivity : AppCompatActivity(), CustomDialog.OnDataEnteredListener {
+class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListener {
     private val CAMERA_REQUEST_CODE = 101
     private val MAX_PERMISSION_REQUESTS = 3 // 최대 요청 횟수
     private val PERMISSION_REQUEST_INTERVAL = 5000L // 권한 요청 간격 (밀리초)
@@ -101,7 +99,7 @@ class MainUIActivity : AppCompatActivity(), CustomDialog.OnDataEnteredListener {
 
         val btUserInput = findViewById<View>(R.id.btUserInput) // 연필버튼이 눌렸을 때
         btUserInput.setOnClickListener {
-            val customDialog = CustomDialog(this, this)
+            val customDialog = UserInputDialog(this, this)
             customDialog.show()
         }
 
