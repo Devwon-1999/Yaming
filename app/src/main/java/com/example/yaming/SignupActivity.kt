@@ -78,7 +78,7 @@ class SignupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("https://yaming-server.vercel.app")
+            .baseUrl("http://yaming-server.vercel.app")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

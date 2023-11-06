@@ -109,7 +109,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_activity)//로그인 폼 시작
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("https://yaming-server.vercel.app")
+            .baseUrl("http://yaming-server.vercel.app")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
