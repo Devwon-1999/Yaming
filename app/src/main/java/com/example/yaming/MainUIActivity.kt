@@ -16,33 +16,22 @@ import android.widget.Toast
 import java.util.Timer
 import java.util.TimerTask
 
-//카메라 관련 수정 필요
-
 class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListener {
     private val CAMERA_REQUEST_CODE = 101
     private val MAX_PERMISSION_REQUESTS = 3 // 최대 요청 횟수
     private val PERMISSION_REQUEST_INTERVAL = 5000L // 권한 요청 간격 (밀리초)
-
     private var permissionRequests = 0
     private var permissionRequestTimer: Timer? = null
-
-
 
     override fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String) {
         // 이제 oneMealTotalCal, oneMealTotalTan, oneMealTotalDan, oneMealTotalJi, meal을 사용하여 원하는 작업을 수행할 수 있습니다.
         // 예를 들어, 이 데이터를 TextView에 표시하거나 데이터베이스에 저장할 수 있습니다.
-        //    val breakfastCal = 0
-        //    val lunchCal = 0
-        //    val dinnerCal = 0
-        //    val weight = 70
-        //    val dailyAmount = weight * 30
-        
+
         //테이블 형식으로 수정 필요
         val oneMealTotalCal = oneMealTotalCal.toInt()
         val oneMealTotalTan = oneMealTotalTan.toInt()
         val oneMealTotalDan = oneMealTotalDan.toInt()
         val oneMealTotalJi = oneMealTotalJi.toInt()
-
 
         val showTodayTan = findViewById<TextView>(R.id.todayTan)
         val showTodayDan = findViewById<TextView>(R.id.todayDan)
@@ -109,9 +98,6 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
             startActivity(intent)
 
         }
-
-
-
     }
 
     private fun hasCameraPermission(): Boolean {
@@ -132,9 +118,7 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
                     CAMERA_REQUEST_CODE
                 )
                 permissionRequests++
-
-                // 일정 간격으로 권한 요청을 반복
-                permissionRequestTimer = Timer()
+                permissionRequestTimer = Timer() // 일정 간격으로 권한 요청을 반복
                 permissionRequestTimer?.schedule(object : TimerTask() {
                     override fun run() {
                         requestCameraPermission()
@@ -142,7 +126,6 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
                 }, PERMISSION_REQUEST_INTERVAL)
             } else {
                 // 최대 요청 횟수를 초과한 경우 처리
-
                 val message = "권한 요청 최대 횟수를 초과했습니다."
                 val duration = Toast.LENGTH_SHORT // 또는 Toast.LENGTH_LONG
                 Toast.makeText(this, message, duration).show()
@@ -185,11 +168,9 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         }
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         permissionRequestTimer?.cancel() // 액티비티가 종료되면 타이머 취소
     }
-
 }
 

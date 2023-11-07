@@ -9,7 +9,6 @@ import android.provider.ContactsContract.Data
 
 class WeightDataSource(context: Context) {
     private val dbHelper = DatabaseHelper(context)
-
     fun addSource(userinfo: UserInfoDB): Long {
         val db = dbHelper.writableDatabase
         val values = ContentValues()
@@ -20,8 +19,6 @@ class WeightDataSource(context: Context) {
         db.close()
         return insertId
     }
-
-
 
     fun getAllSource(): List<UserInfoDB> {
         val UserInfoDataList = mutableListOf<UserInfoDB>()
@@ -35,7 +32,6 @@ class WeightDataSource(context: Context) {
             null,
             null
         )
-
         if (cursor.moveToFirst()) {
             do {
                 val UserInfoDB = UserInfoDB()

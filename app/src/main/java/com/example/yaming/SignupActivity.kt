@@ -59,12 +59,9 @@ class SignupActivity : AppCompatActivity() {
                 else{ //응답 X
                     println("요청에 실패했습니다. HTTP 에러 코드: ${response.code()}")
                 }
-
             }
-
             override fun onFailure(call: Call<SignupData>, t: Throwable) {
                 println("네트워크 오류: ${t.message}")
-
             }
         })
     }
@@ -78,7 +75,7 @@ class SignupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("http://yaming-server.vercel.app")
+            .baseUrl("https://yaming-server.vercel.app")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -93,15 +90,6 @@ class SignupActivity : AppCompatActivity() {
             val editTextemail = findViewById<EditText>(R.id.editTextEmail) //이메일
             val email = editTextemail.text.toString()
             val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"       //이메일 형식확인
-//            editTextemail.setOnFocusChangeListener { _, hasFocus ->
-//                if (!hasFocus) {
-//                    val email = editTextemail.text.toString()
-//                    if (!Pattern.matches(emailPattern, email)) {
-//                        editTextemail.error = "올바른 이메일 형식이 아닙니다."
-//                    }
-//                }
-//            }
-
 
             val editTextpassword = findViewById<EditText>(R.id.editTextPassword) //비밀번호
             val password = editTextpassword.text.toString()
@@ -109,25 +97,11 @@ class SignupActivity : AppCompatActivity() {
             val editTextpasswordcheck = findViewById<EditText>(R.id.editTextConfirmPassword) //비밀번호확인
             val passwordcheck = editTextpasswordcheck.text.toString()
 
-//            editTextpasswordcheck.setOnFocusChangeListener { _, hasFocus ->       //비밀번호 체크 다른 로직으로
-//                if (!hasFocus) {
-//                    if (password != passwordcheck) {
-//                        editTextpasswordcheck.error = "비밀번호가 일치하지 않습니다."
-//                    }
-//                }
-//            }
-
-
             val editTextpn = findViewById<EditText>(R.id.editTextPhoneNumber) //전화번호
             val phonenum = editTextpn.text.toString()
-//            if(isValidPhoneNumber(phonenum) != true){
-//                editTextpn.error = "올바른 전화번호 형식이 아닙니다."
-//            }
-
 
             val editTextage = findViewById<EditText>(R.id.editTextAge) //나이
             val age = editTextage.text.toString()
-
 
             val btnMale = findViewById<RadioButton> (R.id.radioButtonMale);
             val btnFemale = findViewById<RadioButton> (R.id.radioButtonFemale);
