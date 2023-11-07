@@ -91,12 +91,15 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
             val customDialog = UserInputDialog(this, this)
             customDialog.show()
         }
-
+        val btRecommend = findViewById<View>(R.id.btRecommend)
+        btRecommend.setOnClickListener {
+            val intent = Intent(this, RecommendActivity::class.java)
+            startActivity(intent)
+        }
         val btUser = findViewById<View>(R.id.btUser) // 하단 우측버튼눌렸을때
         btUser.setOnClickListener{
             val intent = Intent(this, UserDataActivity::class.java) //로그인 화면으로 전환
             startActivity(intent)
-
         }
     }
 
