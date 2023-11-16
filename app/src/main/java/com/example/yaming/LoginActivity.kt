@@ -1,6 +1,7 @@
 package com.example.yaming
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -43,6 +44,9 @@ class LoginActivity : AppCompatActivity() {
                                 if(response.body()!!.data["email"] == email && response.body()!!.data["password"] == password){
                                     Toast.makeText(this@LoginActivity, "${response.body()!!.data["name"]}님 환영합니다. \n 로그인이 성공적으로 완료되었습니다.", Toast.LENGTH_LONG).show()
                                     val intent = Intent(this@LoginActivity, MainUIActivity::class.java)
+                                    //몸무게 정보 다음 인텐트로 넘기기
+                                    intent.putExtra("weight", "${response.body()!!.data["weight"]}")
+
                                     startActivity(intent)
                                 }
                                 else if(response.body()!!.data["email"] == email && response.body()!!.data["password"] != password){

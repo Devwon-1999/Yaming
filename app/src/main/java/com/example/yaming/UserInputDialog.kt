@@ -10,6 +10,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 
 
+
 class UserInputDialog(context: Context, private val listener: OnDataEnteredListener) : Dialog(context) {
     interface OnDataEnteredListener {
         fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String)
@@ -43,7 +44,7 @@ class UserInputDialog(context: Context, private val listener: OnDataEnteredListe
             else if(radioLunch.isChecked()){
                 meal = "점심"
             }
-            else if(radioLunch.isChecked()){
+            else if(radioDinner.isChecked()){
                 meal = "저녁"
             }
             else{

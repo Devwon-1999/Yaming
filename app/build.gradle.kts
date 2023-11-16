@@ -61,10 +61,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")                  // Retrofit
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")            // Gson 컨버터
 
-    //달력
-    implementation ("com.github.prolificinteractive:material-calendarview:2.0.1")
-    implementation ("com.jakewharton.threetenabp:threetenabp:1.2.1")
-
+    implementation ("androidx.appcompat:appcompat:1.4.0")
 
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation ("com.squareup.okhttp3:okhttp:latest_version")
 }

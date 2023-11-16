@@ -26,7 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="탄수화물" />
+            android:text="탄수화물"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/dan"
@@ -34,7 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="단백질" />
+            android:text="단백질"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/ji"
@@ -42,7 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="지방" />
+            android:text="지방"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -64,7 +70,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="탄수화물" />
+            android:text="-.-g"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/todayDan"
@@ -72,7 +80,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="단백질" />
+            android:text="-.-g"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/todayJi"
@@ -80,7 +90,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="지방" />
+            android:text="-.-g"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <ImageButton
@@ -217,7 +229,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="아침" />
+            android:text="아침"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lunch"
@@ -225,7 +239,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="점심" />
+            android:text="점심"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/dinner"
@@ -233,7 +249,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="저녁" />
+            android:text="저녁"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <TextView
@@ -246,7 +264,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.05"
+        android:textColor="@color/identityColor"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -258,7 +278,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.284"
+        android:textColor="@color/identityColor"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -324,7 +346,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="아침 칼로리" />
+            android:text="-.-cal"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lunchCal"
@@ -332,7 +356,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="점심 칼로리" />
+            android:text="-.-cal"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/dinnerCal"
@@ -340,7 +366,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="저녁 칼로리" />
+            android:text="-.-cal"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -363,7 +391,9 @@
             android:layout_weight="1.5"
             android:gravity="right|center"
             android:text="일일 권장량"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/dailyAmount"
@@ -372,8 +402,10 @@
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="clickdailyAmount"
-            android:text="0000"
-            android:textSize="15dp" />
+            android:text="-"
+            android:textSize="15dp"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView16"
@@ -382,7 +414,9 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="right|center"
-            android:text="kcal" />
+            android:text="kcal"
+            android:textColor="@color/identityColor"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 
