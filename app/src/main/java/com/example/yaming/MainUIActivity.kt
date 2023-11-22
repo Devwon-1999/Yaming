@@ -99,6 +99,10 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         val showTodayDan = findViewById<TextView>(R.id.todayDan)
         val showTodayJi = findViewById<TextView>(R.id.todayJi)
 
+        cameraTan += cameraTan
+        cameraDan += cameraDan
+        cameraJi += cameraJi
+
         showTodayTan.text = "${cameraTan}g"
         showTodayDan.text = "${cameraDan}g"
         showTodayJi.text = "${cameraJi}g"
