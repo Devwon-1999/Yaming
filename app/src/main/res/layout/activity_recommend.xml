@@ -23,10 +23,16 @@
             android:text="금일의 식단 추천"
             android:textColor="@color/identityColor"
             android:textSize="30dp" />
-        <View
-            android:id="@+id/view2"
+        <TextView
+            android:id="@+id/oneDayTotalCal"
             android:layout_width="match_parent"
-            android:layout_height="45dp"/>
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:text="금일 총 열량(클릭시 확인)"
+            android:textColor="@color/identityColor"
+            android:textSize="25dp"
+            android:onClick="clickoneDayTotalCal"
+            />
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"

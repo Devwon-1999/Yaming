@@ -58,6 +58,26 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
     private var cameraTan:Double = 0.0
     private var cameraDan:Double = 0.0
     private var cameraJi:Double = 0.0
+
+    var cameraoneMealTotalTan = 0.0
+    var cameraoneMealTotalDan = 0.0
+    var cameraoneMealTotalJi = 0.0
+
+    val TanHolder = ValueHolder()
+    val DanHolder = ValueHolder()
+    val JiHolder = ValueHolder()
+    class ValueHolder {
+        private var storedValue: Double = 0.0
+
+        fun setValue(value: Double) {
+            storedValue = value
+        }
+
+        fun getValue(): Double {
+            return storedValue
+        }
+    }
+
     override fun onDataEntered(oneMealTotalCal: String, oneMealTotalTan: String, oneMealTotalDan: String, oneMealTotalJi: String, meal: String) {
         //직접입력에서 데이터가 넘어온 경우의 후처리
         val oneMealTotalCal = oneMealTotalCal.toDouble()
@@ -74,20 +94,20 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         totalDan += oneMealTotalDan
         totalJi += oneMealTotalJi
 
-        showTodayTan.text = "${totalTan}g"
-        showTodayDan.text = "${totalDan}g"
-        showTodayJi.text = "${totalJi}g"
+        showTodayTan.text = "%.2f".format(totalTan) + "g"
+        showTodayDan.text = "%.2f".format(totalDan) + "g"
+        showTodayJi.text = "%.2f".format(totalJi) + "g"
         if(meal == "아침"){
             val showBreakfastCal = findViewById<TextView>(R.id.breakfastCal)
-            showBreakfastCal.text = "${oneMealTotalCal}Cal"
+            showBreakfastCal.text = "${oneMealTotalCal}cal"
         }
         else if(meal == "점심"){
             val showLunchCal = findViewById<TextView>(R.id.lunchCal)
-            showLunchCal.text = "${oneMealTotalCal}Cal"
+            showLunchCal.text = "${oneMealTotalCal}cal"
         }
         else if(meal == "저녁"){
             val showDinnerCal = findViewById<TextView>(R.id.dinnerCal)
-            showDinnerCal.text = "${oneMealTotalCal}Cal"
+            showDinnerCal.text = "${oneMealTotalCal}cal"
         }
         else{
             Toast.makeText(this, "데이터가 정상적으로 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
@@ -99,25 +119,36 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         val showTodayDan = findViewById<TextView>(R.id.todayDan)
         val showTodayJi = findViewById<TextView>(R.id.todayJi)
 
-        cameraTan += cameraTan
-        cameraDan += cameraDan
-        cameraJi += cameraJi
 
-        showTodayTan.text = "${cameraTan}g"
-        showTodayDan.text = "${cameraDan}g"
-        showTodayJi.text = "${cameraJi}g"
+
+        cameraoneMealTotalTan = TanHolder.getValue()
+        cameraoneMealTotalDan = DanHolder.getValue()
+        cameraoneMealTotalJi = JiHolder.getValue()
+
+        totalTan += cameraoneMealTotalTan
+        totalDan += cameraoneMealTotalDan
+        totalJi += cameraoneMealTotalJi
+
+
+        showTodayTan.text = "${totalTan}g"
+        showTodayDan.text = "${totalDan}g"
+        showTodayJi.text = "${totalJi}g"
+
+
+
+
 
         if(meal == "아침"){
             val showBreakfastCal = findViewById<TextView>(R.id.breakfastCal)
-            showBreakfastCal.text = "${cameraCal}Cal"
+            showBreakfastCal.text = "${cameraCal}cal"
         }
         else if(meal == "점심"){
             val showLunchCal = findViewById<TextView>(R.id.lunchCal)
-            showLunchCal.text = "${cameraCal}Cal"
+            showLunchCal.text = "${cameraCal}cal"
         }
         else if(meal == "저녁"){
             val showDinnerCal = findViewById<TextView>(R.id.dinnerCal)
-            showDinnerCal.text = "${cameraCal}Cal"
+            showDinnerCal.text = "${cameraCal}cal"
         }
         else{
             Toast.makeText(this, "데이터가 정상적으로 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
@@ -160,7 +191,33 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         }
         val btRecommend = findViewById<View>(R.id.btRecommend)
         btRecommend.setOnClickListener {
+            var totalCal = 0.0
+            val breakfastCal = findViewById<TextView>(R.id.breakfastCal)
+            val lunchCal = findViewById<TextView>(R.id.lunchCal)
+            val dinnerCal = findViewById<TextView>(R.id.dinnerCal)
+
+            val strbreakfastCal = breakfastCal.text.toString()
+            val strlunchCal = lunchCal.text.toString()
+            val strdinnerCal = dinnerCal.text.toString()
+
+            val cleanedBreakfastCal = strbreakfastCal.removeSuffix("cal")
+            val cleanedLunchCal = strlunchCal.removeSuffix("cal")
+            val cleanedDinnerCal = strdinnerCal.removeSuffix("cal")
+
+            val DoublebreakfastCal = cleanedBreakfastCal.toDoubleOrNull() ?: 0.0
+            val DoublelunchCal = cleanedLunchCal.toDoubleOrNull() ?: 0.0
+            val DoubledinnerCal = cleanedDinnerCal.toDoubleOrNull() ?: 0.0
+
+            totalCal = DoublebreakfastCal + DoublelunchCal + DoubledinnerCal
+
             val intent = Intent(this, RecommendActivity::class.java)
+            intent.putExtra("TodayTotalCal",totalCal)
+            Log.e("아", "$cleanedBreakfastCal")
+            Log.e("점", "$cleanedLunchCal")
+            Log.e("저", "$cleanedDinnerCal")
+            Log.e("Cal", "$totalCal")
+
+
             startActivity(intent)
         }
         val btUser = findViewById<View>(R.id.btUser) // 하단 우측버튼눌렸을때
@@ -263,18 +320,20 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
                             val classValue = uploadResponse.classValue
                             val foodName = uploadResponse.foodName
                             val foodInfo = uploadResponse.foodInfo
-                            cameraCal += foodInfo[0][2] as Double
-                            cameraTan += foodInfo[0][3] as Double
-                            cameraDan += foodInfo[0][5] as Double
-                            cameraJi += foodInfo[0][4] as Double
+                            cameraCal = foodInfo[0][2] as Double
+                            cameraTan = foodInfo[0][3] as Double
+                            cameraDan = foodInfo[0][5] as Double
+                            cameraJi = foodInfo[0][4] as Double
+
+                            TanHolder.setValue(cameraTan)
+                            DanHolder.setValue(cameraDan)
+                            JiHolder.setValue(cameraJi)
 
 
-
-                            Log.e("ji", "$cameraJi")
-                            Log.e("dan", "$cameraDan")
-                            Log.e("tan", "$cameraTan")
                             Log.e("cal", "$cameraCal")
-
+                            Log.e("tan", "$cameraTan")
+                            Log.e("dan", "$cameraDan")
+                            Log.e("ji", "$cameraJi")
                         }
                     } else {
                         // 서버 응답이 실패한 경우
