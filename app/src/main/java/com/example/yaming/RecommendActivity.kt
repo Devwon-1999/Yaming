@@ -11,7 +11,8 @@ class RecommendActivity : AppCompatActivity() {
         try{
             val receivedTodayTotalCal = intent.getDoubleExtra("TodayTotalCal", 0.0)
             val textView = findViewById<TextView>(R.id.oneDayTotalCal)
-            textView.text = "${receivedTodayTotalCal}cal"
+            textView.text = "%.2f".format(receivedTodayTotalCal) + "cal"
+
         }
         catch (e: Exception) {
             e.printStackTrace() // 예외 내용을 로그에 출력

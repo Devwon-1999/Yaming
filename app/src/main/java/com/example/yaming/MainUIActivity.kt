@@ -130,9 +130,9 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
         totalJi += cameraoneMealTotalJi
 
 
-        showTodayTan.text = "${totalTan}g"
-        showTodayDan.text = "${totalDan}g"
-        showTodayJi.text = "${totalJi}g"
+        showTodayTan.text = "%.2f".format(totalTan) + "g"
+        showTodayDan.text = "%.2f".format(totalDan) + "g"
+        showTodayJi.text = "%.2f".format(totalJi) + "g"
 
 
 
@@ -322,14 +322,14 @@ class MainUIActivity : AppCompatActivity(), UserInputDialog.OnDataEnteredListene
                             val foodInfo = uploadResponse.foodInfo
                             cameraCal = foodInfo[0][2] as Double
                             cameraTan = foodInfo[0][3] as Double
-                            cameraDan = foodInfo[0][5] as Double
-                            cameraJi = foodInfo[0][4] as Double
+                            cameraDan = foodInfo[0][6] as Double
+                            cameraJi = foodInfo[0][5] as Double
 
                             TanHolder.setValue(cameraTan)
                             DanHolder.setValue(cameraDan)
                             JiHolder.setValue(cameraJi)
 
-
+                            Log.e("foodName", "$foodName")
                             Log.e("cal", "$cameraCal")
                             Log.e("tan", "$cameraTan")
                             Log.e("dan", "$cameraDan")
