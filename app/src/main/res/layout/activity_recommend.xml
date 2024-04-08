@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:text="금일 총 열량(클릭시 확인)"
+            android:text="1047.30cal"
             android:textColor="@color/identityColor"
             android:textSize="25dp"
             android:onClick="clickoneDayTotalCal"
@@ -36,60 +36,21 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="부족 영양소"
+
+            android:text="일일 권장 영양소              부족 영양소"
             android:textColor="@color/identityColor"
-            android:textSize="25dp" />
+            android:textSize="20dp" />
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="150dp"
             android:orientation="horizontal"
-            android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.319">
 
-            <TextView
-                android:id="@+id/tan"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="탄수화물"
-                android:textColor="@color/identityColor"
-                android:textSize="20dp"/>
-
-            <TextView
-                android:id="@+id/dan"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="단백질"
-                android:textColor="@color/identityColor"
-                android:textSize="20dp"/>
-
-            <TextView
-                android:id="@+id/ji"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="지방"
-                android:textColor="@color/identityColor"
-                android:textSize="20dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:orientation="horizontal"
-            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -98,35 +59,181 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.395">
 
-            <TextView
-                android:id="@+id/todayTan"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="탄수화물"
-                android:textColor="@color/identityColor"
-                android:textSize="30dp"/>
 
-            <TextView
-                android:id="@+id/todayDan"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="단백질"
-                android:textColor="@color/identityColor"
-                android:textSize="30dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319">
 
-            <TextView
-                android:id="@+id/todayJi"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="지방"
-                android:textColor="@color/identityColor"
-                android:textSize="30dp"/>
+                <TextView
+                    android:id="@+id/tan"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="탄수화물"
+                    android:textColor="@color/identityColor"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/dan"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="단백질"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/ji"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="지방"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319">
+
+                <TextView
+                    android:id="@+id/eatTan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="300g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/eatDan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="70g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/eatJi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319">
+
+                <TextView
+                    android:id="@+id/bujoktan"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="탄수화물"
+                    android:textColor="@color/identityColor"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/bujokdan"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="단백질"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/bujokji"
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="지방"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319">
+
+                <TextView
+                    android:id="@+id/bujokeatTan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="138.18g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/bujokeatDan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="14.16g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/bujokeatJi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="30.14g"
+                    android:textColor="@color/identityColor"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -143,6 +250,11 @@
                 android:textSize="25dp" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
 
 
     </LinearLayout>
